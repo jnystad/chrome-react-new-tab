@@ -13,5 +13,6 @@
   "permissions": [
     "https://api.github.com/",
     "https://raw.githubusercontent.com/"
-  ]
+  ],
+  "homepage_url": "https://github.com/jorgenys/chrome-react-new-tab"
 }
