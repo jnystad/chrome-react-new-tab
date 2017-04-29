@@ -1,0 +1,41 @@
+.app {
+  position: relative;
+  margin: 40px;
+}
+
+.featured {
+  position: fixed;
+  top: 40px;
+  left: 40px;
+  right: 480px;
+  bottom: 0;
+  overflow-y: auto;
+}
+
+.topten {
+  position: absolute;
+  right: 0;
+  top: 0;
+  overflow-y: auto;
+  font-size: 13px;
+  width: 400px;
+}
+
+.entries {
+  width: 100%;
+}
+
+.entry h2 {
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+@media (max-width: 1162px) {
+  .featured { right: 380px; }
+  .topten { width: 300px; }
+}
+
+@media (max-width: 768px) {
+  .featured { display: none; }
+  .topten { left: 0; width: 100%; }
+}
