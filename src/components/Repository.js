@@ -14,22 +14,32 @@ export default class Repository extends Component {
 
   state = {}
 
-  get rootUrl() {
-    const { repo } = this.props;
+  rootUrl(repo = this.props.repo) {
     return 'https://raw.githubusercontent.com/' + repo.full_name + '/' + repo.default_branch + '/';
   }
 
   componentDidMount() {
-    const { readme } = this.props;
+    const { readme, repo } = this.props;
+    this.loadReadme(readme, repo);
+  }
 
+  componentWillReceiveProps({ readme, repo }) {
+    this.loadReadme(readme, repo);
+  }
+
+  loadReadme(readme, repo) {
+    if (this.readmeRequest) {
+      this.readmeRequest.abort();
+    }
     if (readme) {
-      this.setState({ loading: true });
-      request
-        .get(this.rootUrl + 'README.md')
+      const rootUrl = this.rootUrl(repo);
+      this.setState({ loading: true, readme: false });
+      this.readmeRequest = request
+        .get(rootUrl + 'README.md')
         .end((err, res) => {
           if (err) {
             request
-              .get(this.rootUrl + 'readme.md')
+              .get(rootUrl + 'readme.md')
               .end((err, res) => {
                 if (err) return;
 
@@ -39,6 +49,8 @@ export default class Repository extends Component {
           }
           this.setReadme(res.text);
         });
+    } else {
+      this.setState({ readme: false, loading: false });
     }
   }
 

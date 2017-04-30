@@ -46,3 +46,64 @@ h1 { font-size: 30px; }
 h1 a:link, h2 a:link, h3 a:link, h4 a:link, h5 a:link, h6 a:link {
   text-decoration: none
 }
+
+*:focus {
+  outline: 1px solid rgba(0, 64, 192, .2);
+}
+
+button, .btn {
+  padding: 6px 16px;
+  color: #666;
+  background: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-right: 5px;
+}
+
+button:focus, .btn:focus {
+  outline: none;
+  background: #e6e6e6;
+}
+
+button:active, .btn:active {
+  background: #ddd;
+}
+
+button.active, .btn.active {
+  background: #039;
+  color: #fff;
+}
+button.active:focus, .btn.active:focus {
+  background: #25b;
+}
+button.active:active, .btn.active:active {
+  background: #14a;
+}
+
+.btn-group {
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.btn-group > * {
+  border-radius: 0;
+  border-left-width: 0;
+  margin-right: 0;
+}
+
+.btn-group :first-child {
+  border-radius: 4px 0 0 4px;
+  border-left-width: 1px;
+}
+.btn-group :last-child {
+  border-radius: 0 4px 4px 0;
+}
+
+pre {
+  background: #f9f9f9;
+  padding: 10px;
+  overflow: auto;
+}

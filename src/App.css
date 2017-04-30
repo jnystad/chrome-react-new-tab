@@ -1,15 +1,22 @@
 .app {
   position: relative;
-  margin: 40px;
+  margin: 10px 40px;
+  min-height: 90vh;
 }
 
 .featured {
   position: fixed;
-  top: 40px;
+  top: 65px;
   left: 40px;
   right: 480px;
   bottom: 0;
   overflow-y: auto;
+}
+
+.toolbar {
+  position: fixed;
+  top: 20px;
+  left: 40px;
 }
 
 .topten {
@@ -37,5 +44,8 @@
 
 @media (max-width: 768px) {
   .featured { display: none; }
-  .topten { left: 0; width: 100%; }
+  .topten { left: 0; top: 20px; width: 100%; }
+
+  .toolbar { position: static; }
+  .toolbar .random { display: none; }
 }
